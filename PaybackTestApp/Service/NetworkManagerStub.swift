@@ -15,8 +15,16 @@ class NetworkManagerStub: NetworkManagerProtocol {
     }()
 
     func fetchTransactions() async throws -> [Transaction] {
-        let (data, _) = try await URLSession.shared.data(from: Bundle.main.url(forResource: "PBTransactions", withExtension: "json")!)
-        let response = try jsonDecoder.decode(Response.self, from: data)
-        return response.items
+        switch Int.random(in: 0...3) {
+        case 0:
+            throw ServiceError.randomError
+        case 1:
+            throw ServiceError.offline
+        default:
+            let (data, _) = try await URLSession.shared.data(from: Bundle.main.url(forResource: "PBTransactions", withExtension: "json")!)
+            try await Task.sleep(nanoseconds: 150_000_000)
+            let response = try jsonDecoder.decode(Response.self, from: data)
+            return response.items
+        }
     }
 }

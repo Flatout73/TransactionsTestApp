@@ -7,13 +7,6 @@
 
 import Foundation
 
-enum Category: Int, Decodable, Hashable {
-    case one = 1
-    case two
-    case three
-    case four
-}
-
 struct Transaction: Decodable, Hashable {
     struct Alias: Decodable, Hashable {
         let reference: String

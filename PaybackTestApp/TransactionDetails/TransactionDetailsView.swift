@@ -11,10 +11,12 @@ struct TransactionDetailsView: View {
     let transaction: Transaction
 
     var body: some View {
-        VStack {
+        VStack(alignment: .leading, spacing: 32) {
             Text(transaction.partnerDisplayName)
+                .font(.title)
             if let details = transaction.transactionDetail.description {
                 Text(details)
+                    .font(.body)
             }
         }
     }

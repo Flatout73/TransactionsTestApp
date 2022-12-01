@@ -11,28 +11,55 @@ struct TransactionsView: View {
     @StateObject
     var viewModel: TransactionsViewModel
 
-    var body: some View {
-        List {
-            ForEach(viewModel.transactions, id: \.self, content: { transaction in
-                NavigationLink(destination: {
-                    TransactionDetailsView(transaction: transaction)
-                }) {
-                    TransactionView(transaction: transaction)
+    @ViewBuilder
+    var main: some View {
+        switch viewModel.state {
+        case .loading:
+            ProgressView()
+        case .error(let error):
+            Text(error.localizedDescription)
+        case .done:
+            List {
+                ForEach(viewModel.filteredTransactions, id: \.self, content: { transaction in
+                    NavigationLink(destination: {
+                        TransactionDetailsView(transaction: transaction)
+                    }) {
+                        TransactionView(transaction: transaction)
+                    }
+                })
+
+                HStack {
+                    Text("total")
+                    Spacer()
+                    Text(viewModel.sum, format: .currency(code: viewModel.currency))
                 }
-            })
+            }
         }
+    }
+
+    var body: some View {
+        main
         .task {
-            try! await viewModel.fetch()
+            await viewModel.fetch()
         }
         .navigationTitle("transactions")
         .toolbar(content: {
             ToolbarItem(placement: .navigationBarTrailing, content: {
                 Menu(content: {
-                    ForEach(TransactionsViewModel.Sorts.allCases) { sort in
+                    ForEach(Category.allCases) { filter in
                         Button(action: {
-                            viewModel.sortedBy = sort
+                            if viewModel.filteredBy == filter {
+                                viewModel.filteredBy = nil
+                            } else {
+                                viewModel.filteredBy = filter
+                            }
                         }, label: {
-                            Text(sort.localizedTitle)
+                            HStack {
+                                Text(filter.localizedTitle)
+                                if filter == viewModel.filteredBy {
+                                    Image(systemName: "checkmark")
+                                }
+                            }
                         })
                     }
                 }, label: {
@@ -45,6 +72,6 @@ struct TransactionsView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        TransactionsView(viewModel: TransactionsViewModel(networkManager: NetworkManagerStub()))
+        TransactionsView(viewModel: TransactionsViewModel(networkManager: NetworkManagerStub(), networkStatusManager: NetworkStatusManager()))
     }
 }

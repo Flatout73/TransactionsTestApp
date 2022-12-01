@@ -10,7 +10,7 @@ import Foundation
 
 enum Mock {
     static let transactions: [Transaction] = [
-        Transaction(partnerDisplayName: "REWE Group", category: .one,
+        Transaction(partnerDisplayName: "REWE Group", category: .other,
                     transactionDetail: TransactionDetails(description: "Punkte sammeln",
                                                           bookingDate: Date(),
                                                           value: TransactionDetails.Value(amount: 124, currency: "PBP")))

@@ -23,6 +23,9 @@
 		71EF1B9E29394AF900EDF0FF /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EF1B9D29394AF900EDF0FF /* Response.swift */; };
 		71EF1BA129394F6D00EDF0FF /* TransactionDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EF1BA029394F6D00EDF0FF /* TransactionDetailsView.swift */; };
 		71EF1BA32939507C00EDF0FF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 71EF1BA22939507C00EDF0FF /* Localizable.strings */; };
+		71EF1BA5293955B700EDF0FF /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EF1BA4293955B700EDF0FF /* Category.swift */; };
+		71EF1BA72939589000EDF0FF /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EF1BA62939589000EDF0FF /* ServiceError.swift */; };
+		71EF1BA92939596C00EDF0FF /* NetworkStatusManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EF1BA82939596C00EDF0FF /* NetworkStatusManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +46,9 @@
 		71EF1B9D29394AF900EDF0FF /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		71EF1BA029394F6D00EDF0FF /* TransactionDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailsView.swift; sourceTree = "<group>"; };
 		71EF1BA22939507C00EDF0FF /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		71EF1BA4293955B700EDF0FF /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		71EF1BA62939589000EDF0FF /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
+		71EF1BA82939596C00EDF0FF /* NetworkStatusManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStatusManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +109,8 @@
 			children = (
 				71EF1B892939455100EDF0FF /* NetworkManager.swift */,
 				71EF1B9B29394A4B00EDF0FF /* NetworkManagerStub.swift */,
+				71EF1BA62939589000EDF0FF /* ServiceError.swift */,
+				71EF1BA82939596C00EDF0FF /* NetworkStatusManager.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -113,6 +121,7 @@
 				71EF1B8E2939464A00EDF0FF /* Transaction.swift */,
 				71EF1B90293946BD00EDF0FF /* TransactionDetails.swift */,
 				71EF1B9D29394AF900EDF0FF /* Response.swift */,
+				71EF1BA4293955B700EDF0FF /* Category.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -216,8 +225,11 @@
 				71EF1B8F2939464A00EDF0FF /* Transaction.swift in Sources */,
 				71EF1B7B293942D100EDF0FF /* PaybackTestApp.swift in Sources */,
 				71EF1B9E29394AF900EDF0FF /* Response.swift in Sources */,
+				71EF1BA5293955B700EDF0FF /* Category.swift in Sources */,
 				71EF1B962939478600EDF0FF /* TransactionView.swift in Sources */,
 				71EF1B91293946BD00EDF0FF /* TransactionDetails.swift in Sources */,
+				71EF1BA72939589000EDF0FF /* ServiceError.swift in Sources */,
+				71EF1BA92939596C00EDF0FF /* NetworkStatusManager.swift in Sources */,
 				71EF1B98293947BA00EDF0FF /* Mock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

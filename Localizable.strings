@@ -7,3 +7,7 @@
 */
 
 "transactions" = "Transactions";
+"offline_error" = "No internet connection";
+"grocery" = "Grocery";
+"sport" = "Sport";
+"other" = "Other";

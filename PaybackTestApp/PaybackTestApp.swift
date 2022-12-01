@@ -14,7 +14,8 @@ struct PaybackTestApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                TransactionsView(viewModel: TransactionsViewModel(networkManager: networkManager))
+                TransactionsView(viewModel: TransactionsViewModel(networkManager: networkManager,
+                                                                  networkStatusManager: NetworkStatusManager()))
             }
         }
     }
